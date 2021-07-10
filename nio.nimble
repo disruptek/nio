@@ -14,7 +14,11 @@ template isTest(file: string): bool =
   let fn = file.lastPathPart
   fn.startsWith("0") and fn.endsWith(".sh")
 
+const devShmD = "/dev/shm/d"
+
 task test, "run tests":
+  if devShmD.dirExists:
+    exec "rm -r " & devShmD
   for file in listFiles "tests":
     if file.isTest:
       exec file
