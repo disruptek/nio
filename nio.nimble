@@ -8,6 +8,8 @@ license     = "MIT/ISC"
 requires    "nim >= 1.5.1"
 requires    "cligen >= 1.5.5"
 
+bin = @["nio"]
+
 import std/os
 
 template isTest(file: string): bool =
