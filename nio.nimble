@@ -16,7 +16,7 @@ template isTest(file: string): bool =
   let fn = file.lastPathPart
   fn.startsWith("0") and fn.endsWith(".sh")
 
-const devShmD = getEnv"TMPDIR" / "d"
+const devShmD = getEnv"TMP" / "d"
 
 task test, "run tests":
   if devShmD.dirExists:
